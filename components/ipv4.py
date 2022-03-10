@@ -1,4 +1,3 @@
-from email.base64mime import header_length
 import struct
 
 class IPv4:
