@@ -1,5 +1,6 @@
 
-class HTPP:
+
+class HTTP:
 
     def __init__(self, data):
         try:

@@ -1,6 +1,7 @@
 import struct
 import time
 
+
 class Pcap:
 
     def __init__(self, filename, link_type=1):
@@ -9,9 +10,9 @@ class Pcap:
 
     def write(self, data):
         ts_sec, ts_usec = map(int, str(time.time()).split('.'))
-        lenght = len(data)
-        self.pcap_file.write(struct.pack('@ I I I I', ts_sec, ts_usec, lenght, lenght))
+        length = len(data)
+        self.pcap_file.write(struct.pack('@ I I I I', ts_sec, ts_usec, length, length))
         self.pcap_file.write(data)
 
-    def clone(self):
+    def close(self):
         self.pcap_file.close()
