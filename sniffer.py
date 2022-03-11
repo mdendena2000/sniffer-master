@@ -35,14 +35,14 @@ def main():
 
     #while True:
         # IPv4
-        if eth.proto == 8:
+        if (eth.proto == 8):
             ipv4 = IPv4(eth.data)
-            print(TAB_1 + 'IPv4:')
+            print(TAB_1 + 'IPV4:')
             print(TAB_2 + 'Version: {}, Header Length: {}, TTL: {},'.format(ipv4.version, ipv4.header_length, ipv4.ttl))
             print(TAB_2 + 'Protocol: {}, Source: {}, Target: {}'.format(ipv4.proto, ipv4.src, ipv4.target))
 
             # ICMP
-            if ipv4.proto == 1:
+            if (ipv4.proto == 1):
                 icmp = ICMP(ipv4.data)
                 print(TAB_1 + 'ICMP:')
                 print(TAB_2 + 'Type: {}, Code: {}, Checksum: {},'.format(icmp.type, icmp.code, icmp.checksum))
@@ -50,7 +50,7 @@ def main():
                 print(format_multi_line(DATA_TAB_3, icmp.data))
 
             # TCP
-            elif ipv4.proto == 6:
+            elif (ipv4.proto == 6):
                 tcp = TCP(ipv4.data)
                 print(TAB_1 + 'TCP:')
                 print(TAB_2 + 'Source Port: {}, Destination Port: {}'.format(tcp.src_port, tcp.dest_port))
@@ -62,7 +62,7 @@ def main():
                 if len(tcp.data) > 0:
 
                     # HTTP
-                    if tcp.src_port == 80 or tcp.dest_port == 80:
+                    if (tcp.src_port == 80 or tcp.dest_port) == 80:
                         print(TAB_2 + 'HTTP Data:')
                         try:
                             http = HTTP(tcp.data)
@@ -76,20 +76,20 @@ def main():
                         print(format_multi_line(DATA_TAB_3, tcp.data))
 
             # UDP
-            elif ipv4.proto == 17:
+            elif (ipv4.proto == 17):
                 udp = UDP(ipv4.data)
                 print(TAB_1 + 'UDP:')
                 print(TAB_2 + 'Source Port: {}, Destination Port: {}, Length: {}'.format(udp.src_port, udp.dest_port, udp.size))
 
             # Outros IPv4
             else:
-                print(TAB_1 + 'Outros IPv4 Data:')
+                print(TAB_1 + 'Outros IPV4 Data:')
                 print(format_multi_line(DATA_TAB_2, ipv4.data))
 
         # IPv6
         elif (eth.proto == 56710):
             ipv6 = IPv6(eth.data)
-            print(TAB_1 + 'IPv6 Packet:')
+            print(TAB_1 + 'IPV6:')
             print(TAB_2 + 'Version: {}, Traffic Class: {}, Flow Label: {},'.format(ipv6.version, ipv6.traffic_class, ipv6.flow_label))
             print(TAB_2 + 'Payload Length: {}, Next Header: {}, Hop Limit: {}'.format(ipv6.payload_length, ipv6.next_header, ipv6.hop_limit))
             print(TAB_2 + 'Source Address: {}, Destination Address: {}'.format(ipv6.source_address, ipv6.destination_address))
@@ -97,7 +97,7 @@ def main():
         else:
             print('Ethernet Data:')
             print(format_multi_line(DATA_TAB_1, eth.data))
-       
+            
         #fecha arquivo       
         pcap.close()
     
