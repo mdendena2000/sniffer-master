@@ -2,7 +2,7 @@ import struct
 
 
 class IPv4:
-
+    # Captura pacotes IPv4
     def __init__(self, data):
         version_header_length = data[0]
         self.version = version_header_length >> 4

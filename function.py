@@ -1,4 +1,5 @@
 import textwrap
+import struct
 
 
 # Returns MAC as string from bytes (ie AA:BB:CC:DD:EE:FF)
@@ -16,3 +17,8 @@ def format_multi_line(prefix, string, size=80):
         if size % 2:
             size -= 1
     return '\n'.join([prefix + line for line in textwrap.wrap(string, size)])
+
+
+def get_ipv6_address(raw_data):
+    address = ":".join(map('{:04x}'.format, struct.unpack('! H H H H H H H H', raw_data)))
+    return address.replace(":0000:","::" ).replace(":::", "::").replace(":::", "::")
