@@ -1,5 +1,4 @@
 ## Sniffer-master
-<<<<<<< HEAD
 
 Este trabalho visa implementar um de software livre. O trabalho é um pré-requisito para empacotar pacotes de rede. O objetivo deste trabalho é contribuir com desenvolvimento de software e a comunidade de software livre, para praticar os conceitos da disciplina.
 
@@ -19,5 +18,5 @@ Qualquer rede convencional transporta dados em pacotes que são fabricados por u
 ### Para executar:
 
 su python3 sniffer.py
-=======
->>>>>>> f7681320b1f1a0aafe8cb9a4640376f09c042bf9
+
+
