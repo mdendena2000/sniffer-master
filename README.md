@@ -17,6 +17,4 @@ Qualquer rede convencional transporta dados em pacotes que são fabricados por u
 
 ### Para executar:
 
-su python3 sniffer.py
-
-
+python3 sniffer.py
