@@ -43,7 +43,7 @@ def main():
         print('\033[32m' + '\nIPV4:' + '\033[0;0m')
         print(TAB_1 + 'Versão: {}'.format(ipv4.version))
         print(TAB_1 + 'Comprimento do Cabeçalho: {}'.format(ipv4.header_length))
-        print(TAB_1 + 'TTL: {}'.format(ipv4.ttl))
+        print(TAB_1 + 'Tempo de Vida (TTL): {}'.format(ipv4.ttl))
         print(TAB_1 + 'Protocolo: {}'.format(ipv4.proto))
         print(TAB_1 + 'Endereço Origem: {}'.format(ipv4.src))
         print(TAB_1 + 'Endereço Destino: {}'.format(ipv4.target))
