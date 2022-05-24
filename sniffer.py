@@ -24,7 +24,7 @@ def main():
     sock = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(3)) # Converte inteiros positivos de 16 bits da rede para a ordem de bytes do host.
 
     # Escuta na porta 65535 // 65536
-    data, addr = sock.recvfrom(65536)
+    data, addr = sock.recvfrom(65535)
     pcap.write(data)
 
     # Ethernet
