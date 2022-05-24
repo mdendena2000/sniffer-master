@@ -15,4 +15,3 @@ class IPv6:
 
     def ipv6(self, addr):
         return '.'.join(map(str, addr))
-    

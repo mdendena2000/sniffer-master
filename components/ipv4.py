@@ -1,6 +1,5 @@
 import struct
 
-
 class IPv4:
     # Captura pacotes IPv4
     def __init__(self, data):

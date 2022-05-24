@@ -1,6 +1,5 @@
 import struct
 
-
 class ICMP:
 
     def __init__(self, data):

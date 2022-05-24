@@ -8,11 +8,11 @@ Qualquer rede convencional transporta dados em pacotes que são fabricados por u
 
 Captura de pacotes IPv4 e IPv6
 
-- Endereço MAC (Destino e Origem)
-- Protocolo Ethernet
-- Protocolo TCP
+- Endereço MAC (Destino e Origem);
+- Protocolo Ethernet;
+- Protocolo TCP;
 - Identificação e tratamento para protocolo ICMP;
-- Identificação e tratamento para protocolo UDP;
+- Identificação e tratamento para protocolo UDP.
 
 ### Para executar:
 

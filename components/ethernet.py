@@ -2,7 +2,6 @@ import socket
 import struct
 from function import *
 
-
 class Ethernet:
 
     def __init__(self, data):
@@ -13,6 +12,3 @@ class Ethernet:
         self.src_mac = get_mac_addr(src)
         self.proto = socket.htons(prototype)
         self.data = data[14:]
-
-
-

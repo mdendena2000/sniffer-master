@@ -1,6 +1,5 @@
 import struct
 
-
 class UDP:
 
     def __init__(self, data):

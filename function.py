@@ -1,7 +1,6 @@
 import textwrap
 import struct
 
-
 # Retorna endereço MAC
 def get_mac_addr(mac):
     byte_str = map('{:02x}'.format, mac)
