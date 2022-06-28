@@ -1,13 +1,12 @@
 import socket
 from function import *
-from components.ethernet import Ethernet
-from components.ipv4 import IPv4
-from components.ipv6 import IPv6
-from components.icmp import ICMP
-from components.tcp import TCP
-from components.udp import UDP
-from components.pcap import Pcap
-from components.http import HTTP
+from protocolos.ethernet import Ethernet
+from protocolos.ipv4 import IPv4
+from protocolos.ipv6 import IPv6
+from protocolos.icmp import ICMP
+from protocolos.tcp import TCP
+from protocolos.udp import UDP
+from protocolos.http import HTTP
 
 TAB_1 = '\t - '
 TAB_2 = '\t\t - '
@@ -19,13 +18,11 @@ DATA_TAB_1 = '\t   '
 
 def main():
 
-    pcap = Pcap('capturas.pcap')
     # Cria um socket de rede
     sock = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(3)) # Converte inteiros positivos de 16 bits da rede para a ordem de bytes do host.
 
     # Escuta na porta 65535 // 65536
     data, addr = sock.recvfrom(65535)
-    pcap.write(data)
 
     # Ethernet
     eth = Ethernet(data)
@@ -74,7 +71,7 @@ def main():
 
             if len(tcp.data) > 0:
                 # HTTP
-                if (tcp.src_port == 80 or tcp.dest_port) == 80:
+                if (tcp.src_port == 80 or tcp.dest_port == 80):
                     print('\033[32m' + '\nHTTP Data:' + '\033[0;0m')
                     try:
                         http = HTTP(tcp.data)
@@ -119,9 +116,6 @@ def main():
                     
     else:
         print('\033[32m' + '\nEthernet Data:' + '\033[0;0m')
-        print(format_multi_line(DATA_TAB_1, eth.data))        
-
-    pcap.close()
-    # fecha arquivo   
+        print(format_multi_line(DATA_TAB_1, eth.data))
 
 main()
